@@ -4,16 +4,25 @@ import {
 } from "../actions/fetchQuestions";
 
 const initialState = {
-  response: null,
-  error: null
+  results: null,
+  error: null,
+  responseCode: null
 };
 
 const trivia = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_QUESTIONS_RESOLVED:
-      return { ...state, response: action.response };
+      return {
+        ...state,
+        results: action.results,
+        // API response code description at https://opentdb.com/api_config.php
+        responseCode: action.responseCode
+      };
     case FETCH_QUESTIONS_REJECTED:
-      return { ...state, error: action.error };
+      return {
+        ...state,
+        error: action.error
+      };
     default:
       return state;
   }
