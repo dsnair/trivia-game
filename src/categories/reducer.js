@@ -1,7 +1,8 @@
 import {
+  FETCH_QUESTIONS_PENDING,
   FETCH_QUESTIONS_RESOLVED,
   FETCH_QUESTIONS_REJECTED
-} from "../actions/fetchQuestions";
+} from "./actions";
 
 const initialState = {
   results: null,
@@ -9,7 +10,7 @@ const initialState = {
   responseCode: null
 };
 
-const trivia = (state = initialState, action) => {
+const categories = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_QUESTIONS_RESOLVED:
       return {
@@ -23,9 +24,10 @@ const trivia = (state = initialState, action) => {
         ...state,
         error: action.error
       };
+    case FETCH_QUESTIONS_PENDING:
     default:
       return state;
   }
 };
 
-export default trivia;
+export default categories;

@@ -4,12 +4,12 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose } from "redux";
 import thunkMiddleware from "redux-thunk";
 
-import App from "./components/App";
-import trivia from "./reducers/trivia";
+import App from "./App";
+import categories from "./categories/reducer";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
-  trivia,
+  categories,
   composeEnhancers(applyMiddleware(thunkMiddleware))
 );
 ReactDOM.render(
