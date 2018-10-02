@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://dsnair.github.io/trivia-game/",
   "dependencies": {
+    "@material-ui/core": "^3.1.2",
     "gh-pages": "^2.0.0",
     "lodash": "^4.17.11",
     "react": "^16.5.2",
