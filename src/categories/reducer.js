@@ -10,7 +10,7 @@ const initialState = {
   responseCode: null
 };
 
-const categories = (state = initialState, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case FETCH_QUESTIONS_RESOLVED:
       return {
@@ -29,5 +29,3 @@ const categories = (state = initialState, action) => {
       return state;
   }
 };
-
-export default categories;
