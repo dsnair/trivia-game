@@ -15,7 +15,7 @@ const styles = theme => ({
 });
 
 class Answers extends Component {
-  handleAnswerClick = event => {
+  handleClick = event => {
     this.props.selectAnswer(event.currentTarget.textContent);
   };
 
@@ -28,7 +28,7 @@ class Answers extends Component {
       <List component="nav">
         {allAnswers.map(answer => (
           <React.Fragment key={answer}>
-            <ListItem button onClick={this.handleAnswerClick}>
+            <ListItem button onClick={this.handleClick}>
               <ListItemText primary={answer} />
             </ListItem>
             <Divider />

@@ -1,13 +1,13 @@
 import { connect } from "react-redux";
 
-import Round from './Round'
+import Trivia from "./Trivia";
 
 const mapStateToProps = state => ({
-  results: state.categories.results
+  results: state.categories.results,
+  number: state.trivia.number
 });
-
 
 export default connect(
   mapStateToProps,
   null
-)(Round);
+)(Trivia);

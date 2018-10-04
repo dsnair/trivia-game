@@ -6,10 +6,10 @@ import thunkMiddleware from "redux-thunk";
 
 import App from "./App";
 import categories from "./categories/reducer";
-import game from "./game/reducer";
+import trivia from "./trivia/reducer";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const rootReducer = combineReducers({ categories, game });
+const rootReducer = combineReducers({ categories, trivia });
 
 const store = createStore(
   rootReducer,

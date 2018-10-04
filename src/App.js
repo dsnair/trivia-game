@@ -1,12 +1,12 @@
 import React from "react";
 
 import Categories from "./categories/";
-import Round from "./game/";
+import Trivia from "./trivia/";
 
 const App = props => (
   <React.Fragment>
     <Categories />
-    <Round />
+    <Trivia />
   </React.Fragment>
 );
 
