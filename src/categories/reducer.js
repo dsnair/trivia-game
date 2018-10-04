@@ -7,7 +7,8 @@ import {
 const initialState = {
   results: null,
   error: null,
-  responseCode: null
+  responseCode: null,
+  amount: null
 };
 
 export default (state = initialState, action) => {
@@ -17,7 +18,8 @@ export default (state = initialState, action) => {
         ...state,
         results: action.results,
         // API response code description at https://opentdb.com/api_config.php
-        responseCode: action.responseCode
+        responseCode: action.responseCode,
+        amount: action.results.length
       };
     case FETCH_QUESTIONS_REJECTED:
       return {

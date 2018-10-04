@@ -8,8 +8,10 @@ export const selectAnswer = selectedAnswer => dispatch => {
   });
 };
 
-export const nextQuestion = () => dispatch => {
+export const nextQuestion = () => (dispatch, getState) => {
+  const { categories, trivia } = getState();
   return dispatch({
-    type: NEXT_QUESTION_VIEWED
+    type: NEXT_QUESTION_VIEWED,
+    correctAnswer: categories.results[trivia.questionNumber].correct_answer
   });
 };

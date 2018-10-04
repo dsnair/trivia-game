@@ -15,7 +15,14 @@ class Next extends React.Component {
         mini
         color="primary"
       >
-        Next {<KeyboardArrowRight />}
+        {this.props.questionNumber === this.props.amount - 1 ? (
+          "Score"
+        ) : (
+          <React.Fragment>
+            Next
+            <KeyboardArrowRight />
+          </React.Fragment>
+        )}
       </Button>
     );
   }
