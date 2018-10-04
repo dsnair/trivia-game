@@ -4,7 +4,7 @@ import Trivia from "./Trivia";
 
 const mapStateToProps = state => ({
   results: state.categories.results,
-  number: state.trivia.number
+  questionNumber: state.trivia.questionNumber
 });
 
 export default connect(
