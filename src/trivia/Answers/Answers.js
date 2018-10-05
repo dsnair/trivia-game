@@ -6,13 +6,13 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
 import shuffle from "lodash/shuffle";
 
-const styles = theme => ({
-  root: {
-    width: "100%",
-    maxWidth: 360,
-    backgroundColor: theme.palette.background.paper
+const styles = {
+  answers: {
+    display: "flex",
+    justifyContent: "center",
+    alignItem: "center"
   }
-});
+};
 
 class Answers extends Component {
   handleClick = event => {
@@ -29,9 +29,12 @@ class Answers extends Component {
         {allAnswers.map(answer => (
           <React.Fragment key={answer}>
             <ListItem button onClick={this.handleClick}>
-              <ListItemText primary={answer} />
+              <ListItemText
+                primary={answer}
+                className={this.props.classes.answers}
+              />
             </ListItem>
-            <Divider />
+            <Divider light />
           </React.Fragment>
         ))}
       </List>

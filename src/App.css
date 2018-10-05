@@ -1,0 +1,12 @@
+body {
+  background-color: rgb(240, 240, 240);
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 15vh 0;
+}
