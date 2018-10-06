@@ -5,7 +5,8 @@ import Trivia from "./Trivia";
 const mapStateToProps = state => ({
   amount: state.categories.amount,
   questionNumber: state.trivia.questionNumber,
-  score: state.trivia.score
+  score: state.trivia.score,
+  isFetchingQuestions: state.categories.isFetchingQuestions
 });
 
 export default connect(

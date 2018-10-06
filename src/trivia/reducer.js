@@ -1,7 +1,8 @@
 import {
   ANSWER_SELECTED,
   NEXT_QUESTION_VIEWED,
-  ANSWER_REVEALED
+  ANSWER_REVEALED,
+  TRIVIA_CLEARED
 } from "./actions";
 
 const initialState = {
@@ -35,6 +36,9 @@ export default (state = initialState, action) => {
 
     case ANSWER_REVEALED:
       return { ...state, showAnswer: true };
+
+    case TRIVIA_CLEARED:
+      return initialState;
     default:
       return state;
   }

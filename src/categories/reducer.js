@@ -1,7 +1,8 @@
 import {
   FETCH_QUESTIONS_PENDING,
   FETCH_QUESTIONS_RESOLVED,
-  FETCH_QUESTIONS_REJECTED
+  FETCH_QUESTIONS_REJECTED,
+  CATEGORIES_CLEARED
 } from "./actions";
 import shuffle from "lodash/shuffle";
 
@@ -9,11 +10,15 @@ const initialState = {
   results: null,
   error: null,
   responseCode: null,
-  amount: null
+  amount: null,
+  isFetchingQuestions: false
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case CATEGORIES_CLEARED:
+      return initialState;
+
     case FETCH_QUESTIONS_RESOLVED: {
       const results = action.results.map(result => {
         const allAnswers = shuffle([
@@ -27,15 +32,20 @@ export default (state = initialState, action) => {
         results,
         // API response code description at https://opentdb.com/api_config.php
         responseCode: action.responseCode,
-        amount: action.results.length
+        amount: action.results.length,
+        isFetchingQuestions: false
       };
     }
+
     case FETCH_QUESTIONS_REJECTED:
       return {
         ...state,
-        error: action.error
+        error: action.error,
+        isFetchingQuestions: false
       };
+
     case FETCH_QUESTIONS_PENDING:
+      return { ...state, isFetchingQuestions: true };
     default:
       return state;
   }

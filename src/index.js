@@ -3,8 +3,9 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import thunkMiddleware from "redux-thunk";
+import { BrowserRouter } from "react-router-dom";
 
-import App from "./App";
+import App from "./app/";
 import categories from "./categories/reducer";
 import trivia from "./trivia/reducer";
 
@@ -16,8 +17,10 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunkMiddleware))
 );
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>,
   document.getElementById("root")
 );

@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -6,11 +7,13 @@ import CardActions from "@material-ui/core/CardActions";
 import Badge from "@material-ui/core/Badge";
 import Typography from "@material-ui/core/Typography";
 import MobileStepper from "@material-ui/core/MobileStepper";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 import Question from "./Question";
 import Answers from "./Answers";
 import Next from "./Next";
 import Reveal from "./Reveal";
+import Start from "../app/Start";
 
 const styles = {
   card: {
@@ -26,18 +29,21 @@ const styles = {
     justifyContent: "center",
     alignItem: "center"
   },
-  dots: {
-    background: "white"
-  },
   score: {
     top: -5,
     right: -30
+  },
+  dots: {
+    background: "white"
   }
 };
 
 const Trivia = props => {
-  if (!props.amount) return null;
-  if (props.questionNumber === props.amount) return `Score ${props.score}`;
+  if (props.isFetchingQuestions) return <CircularProgress />;
+  if (!props.amount) return <Redirect to={"/"} />;
+  if (props.questionNumber === props.amount)
+    return <Redirect to={"/scorecard"} />;
+
   return (
     <React.Fragment>
       <Card className={props.classes.card}>
@@ -65,6 +71,7 @@ const Trivia = props => {
       >
         <Typography variant="caption">Score</Typography>
       </Badge>
+      <Start />
     </React.Fragment>
   );
 };

@@ -1,6 +1,7 @@
 export const FETCH_QUESTIONS_PENDING = "FETCH_QUESTIONS_PENDING";
 export const FETCH_QUESTIONS_RESOLVED = "FETCH_QUESTIONS_RESOLVED";
 export const FETCH_QUESTIONS_REJECTED = "FETCH_QUESTIONS_REJECTED";
+export const CATEGORIES_CLEARED = "CATEGORIES_CLEARED";
 
 export const fetchQuestions = () => async dispatch => {
   const url = `https://opentdb.com/api.php?amount=5&encode=url3986`;
@@ -28,4 +29,10 @@ export const fetchQuestions = () => async dispatch => {
       error
     });
   }
+};
+
+export const clearCategories = () => dispatch => {
+  return dispatch({
+    type: CATEGORIES_CLEARED
+  });
 };
