@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
+import { CATEGORIES } from "../routes";
 
 const styles = {
   button: {
@@ -20,7 +21,7 @@ class Start extends React.Component {
 
   render() {
     return (
-      <Link to={"/"} style={{ textDecoration: "none" }}>
+      <Link to={CATEGORIES} style={{ textDecoration: "none" }}>
         <Button
           onClick={this.handleClick}
           variant="outlined"

@@ -9,6 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import MobileStepper from "@material-ui/core/MobileStepper";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
+import { CATEGORIES, SCORECARD } from "../app/routes";
 import Question from "./Question";
 import Answers from "./Answers";
 import Next from "./Next";
@@ -40,9 +41,8 @@ const styles = {
 
 const Trivia = props => {
   if (props.isFetchingQuestions) return <CircularProgress />;
-  if (!props.amount) return <Redirect to={"/"} />;
-  if (props.questionNumber === props.amount)
-    return <Redirect to={"/scorecard"} />;
+  if (!props.amount) return <Redirect to={CATEGORIES} />;
+  if (props.questionNumber === props.amount) return <Redirect to={SCORECARD} />;
 
   return (
     <React.Fragment>
