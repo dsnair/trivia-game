@@ -3,15 +3,17 @@ import { withStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import Check from "@material-ui/icons/Check";
 import Divider from "@material-ui/core/Divider";
-import shuffle from "lodash/shuffle";
 
 const styles = {
   answers: {
     display: "flex",
     justifyContent: "center",
     alignItem: "center"
-  }
+  },
+  correct: { color: "green" }
 };
 
 class Answers extends Component {
@@ -20,19 +22,24 @@ class Answers extends Component {
   };
 
   render() {
-    const allAnswers = shuffle([
-      ...this.props.incorrectAnswers,
-      this.props.correctAnswer
-    ]);
     return (
       <List component="nav">
-        {allAnswers.map(answer => (
+        {this.props.allAnswers.map(answer => (
           <React.Fragment key={answer}>
-            <ListItem button onClick={this.handleClick}>
+            <ListItem
+              button
+              onClick={this.handleClick}
+              selected={this.props.selectedAnswer === answer}
+            >
               <ListItemText
                 primary={answer}
                 className={this.props.classes.answers}
               />
+              {this.props.showAnswer && answer === this.props.correctAnswer ? (
+                <ListItemIcon>
+                  <Check className={this.props.classes.correct} />
+                </ListItemIcon>
+              ) : null}
             </ListItem>
             <Divider light />
           </React.Fragment>

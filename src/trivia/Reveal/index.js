@@ -1,9 +1,13 @@
 import { connect } from "react-redux";
-import Reveal from "./Reveal";
 
-const mapStateToProps = state => ({});
+import Reveal from "./Reveal";
+import { revealAnswer } from "../actions";
+
+const mapDispatchToProps = dispatch => ({
+  revealAnswer: () => dispatch(revealAnswer())
+});
 
 export default connect(
-  mapStateToProps,
-  null
+  null,
+  mapDispatchToProps
 )(Reveal);

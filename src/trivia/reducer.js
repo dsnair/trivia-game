@@ -1,10 +1,15 @@
-import { ANSWER_SELECTED, NEXT_QUESTION_VIEWED } from "./actions";
+import {
+  ANSWER_SELECTED,
+  NEXT_QUESTION_VIEWED,
+  ANSWER_REVEALED
+} from "./actions";
 
 const initialState = {
   questionNumber: 0,
   selectedAnswer: null,
   selectedCorrectAnswer: [],
-  score: 0
+  score: 0,
+  showAnswer: false
 };
 
 export default (state = initialState, action) => {
@@ -20,9 +25,16 @@ export default (state = initialState, action) => {
         selectedCorrectAnswer: state.selectedCorrectAnswer.concat(
           selectedCorrectAnswer
         ),
-        score: selectedCorrectAnswer ? state.score + 1 : state.score,
-        questionNumber: state.questionNumber + 1
+        score:
+          !state.showAnswer && selectedCorrectAnswer
+            ? state.score + 1
+            : state.score,
+        questionNumber: state.questionNumber + 1,
+        showAnswer: false
       };
+
+    case ANSWER_REVEALED:
+      return { ...state, showAnswer: true };
     default:
       return state;
   }

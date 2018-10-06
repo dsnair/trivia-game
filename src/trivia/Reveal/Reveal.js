@@ -2,7 +2,9 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 
 class Reveal extends React.Component {
-  handleClick = () => {};
+  handleClick = () => {
+    this.props.revealAnswer();
+  };
 
   render() {
     return (
