@@ -25,9 +25,11 @@ export const revealAnswer = () => dispatch => {
   });
 };
 
-export const incrementGameNumber = () => dispatch => {
+export const incrementGameNumber = () => (dispatch, getState) => {
+  const { categories } = getState();
   return dispatch({
-    type: GAME_ENDED
+    type: GAME_ENDED,
+    selectedCategory: categories.selectedCategory
   });
 };
 

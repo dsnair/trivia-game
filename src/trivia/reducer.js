@@ -44,7 +44,14 @@ export default (state = initialState, action) => {
 
     case GAME_ENDED:
       const gameNumber = state.gameNumber + 1;
-      const summary = [...state.summary, { gameNumber, score: state.score }];
+      const summary = [
+        ...state.summary,
+        {
+          gameNumber,
+          score: state.score,
+          selectedCategory: action.selectedCategory
+        }
+      ];
       return {
         ...state,
         gameNumber,

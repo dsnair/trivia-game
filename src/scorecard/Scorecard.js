@@ -24,7 +24,8 @@ const Scorecard = props => {
           <TableHead>
             <TableRow>
               <TableCell>Game</TableCell>
-              <TableCell>Score &uarr;</TableCell>
+              <TableCell>Score (top 5) &uarr;</TableCell>
+              <TableCell>Category</TableCell>
             </TableRow>
           </TableHead>
 
@@ -34,6 +35,7 @@ const Scorecard = props => {
                 <TableRow key={row.gameNumber}>
                   <TableCell>{row.gameNumber}</TableCell>
                   <TableCell>{row.score}</TableCell>
+                  <TableCell>{row.selectedCategory}</TableCell>
                 </TableRow>
               );
             })}
