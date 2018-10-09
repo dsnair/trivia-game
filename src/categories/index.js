@@ -1,10 +1,11 @@
 import { connect } from "react-redux";
 
 import Categories from "./Categories";
-import { fetchQuestions } from "./actions";
+import { fetchQuestions, selectCategory } from "./actions";
 
 const mapDispatchToProps = dispatch => ({
-  fetchQuestions: () => dispatch(fetchQuestions())
+  fetchQuestions: () => dispatch(fetchQuestions()),
+  selectCategory: category => dispatch(selectCategory(category))
 });
 
 export default connect(

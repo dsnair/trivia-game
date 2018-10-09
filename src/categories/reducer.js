@@ -1,4 +1,5 @@
 import {
+  CATEGORY_SELECTED,
   FETCH_QUESTIONS_PENDING,
   FETCH_QUESTIONS_RESOLVED,
   FETCH_QUESTIONS_REJECTED,
@@ -7,6 +8,7 @@ import {
 import shuffle from "lodash/shuffle";
 
 const initialState = {
+  selectedCategory: null,
   results: null,
   error: null,
   responseCode: null,
@@ -16,8 +18,11 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case CATEGORIES_CLEARED:
-      return initialState;
+    case CATEGORY_SELECTED:
+      return {
+        ...state,
+        selectedCategory: action.category
+      };
 
     case FETCH_QUESTIONS_RESOLVED: {
       const results = action.results.map(result => {
@@ -46,6 +51,10 @@ export default (state = initialState, action) => {
 
     case FETCH_QUESTIONS_PENDING:
       return { ...state, isFetchingQuestions: true };
+
+    case CATEGORIES_CLEARED:
+      return initialState;
+
     default:
       return state;
   }
