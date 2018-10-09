@@ -5,6 +5,7 @@ import { withStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
+import Typography from "@material-ui/core/Typography";
 
 import general from "./images/general.jpeg";
 import sports from "./images/sports.jpeg";
@@ -15,6 +16,11 @@ const styles = {
   images: {
     width: 700,
     height: 400
+  },
+  headline: {
+    fontSize: "large",
+    fontWeight: "lighter",
+    margin: "5vh"
   }
 };
 
@@ -46,24 +52,29 @@ class Categories extends React.Component {
 
   render() {
     return (
-      <GridList
-        cellHeight={180}
-        className={this.props.classes.images}
-        cols={3}
-      >
-        {tileData.map(tile => (
-          <GridListTile key={tile.title} cols={tile.cols || 1}>
-            <Link to={TRIVIA}>
-              <img
-                src={tile.img}
-                alt={tile.title}
-                onClick={() => this.handleClick(tile.title)}
-              />
-            </Link>
-            <GridListTileBar title={tile.title} />
-          </GridListTile>
-        ))}
-      </GridList>
+      <React.Fragment>
+        <Typography variant="body2" className={this.props.classes.headline}>
+          Let's play a game of trivia! Select a category below to get started.
+        </Typography>
+        <GridList
+          cellHeight={180}
+          className={this.props.classes.images}
+          cols={3}
+        >
+          {tileData.map(tile => (
+            <GridListTile key={tile.title} cols={tile.cols || 1}>
+              <Link to={TRIVIA}>
+                <img
+                  src={tile.img}
+                  alt={tile.title}
+                  onClick={() => this.handleClick(tile.title)}
+                />
+              </Link>
+              <GridListTileBar title={tile.title} />
+            </GridListTile>
+          ))}
+        </GridList>
+      </React.Fragment>
     );
   }
 }
