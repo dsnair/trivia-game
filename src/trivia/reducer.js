@@ -31,10 +31,7 @@ export default (state = initialState, action) => {
           ...state.selectedCorrectAnswer,
           selectedCorrectAnswer
         ],
-        score:
-          !state.showAnswer && selectedCorrectAnswer
-            ? state.score + 1
-            : state.score,
+        score: selectedCorrectAnswer ? state.score + 1 : state.score,
         questionNumber: state.questionNumber + 1,
         showAnswer: false
       };
