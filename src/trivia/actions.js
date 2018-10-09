@@ -1,6 +1,7 @@
 export const ANSWER_SELECTED = "ANSWER_SELECTED";
-export const NEXT_QUESTION_VIEWED = "NEXT_QUESTION_VIEWED";
+export const ANSWER_SCORED = "ANSWER_SCORED";
 export const ANSWER_REVEALED = "ANSWER_REVEALED";
+export const GAME_ENDED = "GAME_ENDED";
 export const TRIVIA_CLEARED = "TRIVIA_CLEARED";
 
 export const selectAnswer = selectedAnswer => dispatch => {
@@ -10,10 +11,10 @@ export const selectAnswer = selectedAnswer => dispatch => {
   });
 };
 
-export const nextQuestion = () => (dispatch, getState) => {
+export const scoreAnswer = () => (dispatch, getState) => {
   const { categories, trivia } = getState();
   return dispatch({
-    type: NEXT_QUESTION_VIEWED,
+    type: ANSWER_SCORED,
     correctAnswer: categories.results[trivia.questionNumber].correct_answer
   });
 };
@@ -21,6 +22,12 @@ export const nextQuestion = () => (dispatch, getState) => {
 export const revealAnswer = () => dispatch => {
   return dispatch({
     type: ANSWER_REVEALED
+  });
+};
+
+export const incrementGameNumber = () => dispatch => {
+  return dispatch({
+    type: GAME_ENDED
   });
 };
 

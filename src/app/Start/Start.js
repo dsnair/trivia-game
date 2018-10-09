@@ -21,17 +21,17 @@ class Start extends React.Component {
 
   render() {
     return (
-      <Link to={CATEGORIES} style={{ textDecoration: "none" }}>
-        <Button
-          onClick={this.handleClick}
-          variant="outlined"
-          mini
-          color="primary"
-          className={this.props.classes.button}
-        >
-          Start New Game
-        </Button>
-      </Link>
+      <Button
+        onClick={this.handleClick}
+        component={Link}
+        to={CATEGORIES}
+        variant="outlined"
+        mini
+        color="primary"
+        className={this.props.classes.button}
+      >
+        Start New Game
+      </Button>
     );
   }
 }

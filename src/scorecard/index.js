@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import Scorecard from "./Scorecard";
 
 const mapStateToProps = state => ({
-  score: state.trivia.score
+  summary: state.trivia.summary,
+  gameNumber: state.trivia.gameNumber
 });
 
 export default connect(

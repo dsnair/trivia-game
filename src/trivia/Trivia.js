@@ -60,7 +60,7 @@ const Trivia = props => {
             position="static"
             className={props.classes.dots}
           />
-          <Next nextQuestion={props.nextQuestion} />
+          <Next scoreAnswer={props.scoreAnswer} />
         </CardActions>
       </Card>
 
