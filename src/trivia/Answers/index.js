@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 
 import Answers from "./Answers";
-import { selectAnswer } from "../actions";
+import { selectAnswer, showSnackbar } from "../actions";
 
 // {id} = ownProps.id refers to the 'id' prop of <Answers />
 const mapStateToProps = (state, { id }) => ({
@@ -12,7 +12,8 @@ const mapStateToProps = (state, { id }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  selectAnswer: selectedAnswer => dispatch(selectAnswer(selectedAnswer))
+  selectAnswer: selectedAnswer => dispatch(selectAnswer(selectedAnswer)),
+  showSnackbar: bool => dispatch(showSnackbar(bool))
 });
 
 export default connect(

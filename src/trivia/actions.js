@@ -1,6 +1,7 @@
 export const ANSWER_SELECTED = "ANSWER_SELECTED";
 export const ANSWER_SCORED = "ANSWER_SCORED";
 export const ANSWER_REVEALED = "ANSWER_REVEALED";
+export const SNACKBAR_SHOWN = "SNACKBAR_SHOWN";
 export const GAME_ENDED = "GAME_ENDED";
 export const TRIVIA_CLEARED = "TRIVIA_CLEARED";
 
@@ -23,6 +24,10 @@ export const revealAnswer = () => dispatch => {
   return dispatch({
     type: ANSWER_REVEALED
   });
+};
+
+export const showSnackbar = bool => dispatch => {
+  return dispatch({ type: SNACKBAR_SHOWN, bool });
 };
 
 export const incrementGameNumber = () => (dispatch, getState) => {

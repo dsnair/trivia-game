@@ -6,7 +6,6 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Check from "@material-ui/icons/Check";
 import Divider from "@material-ui/core/Divider";
-import Snackbar from "@material-ui/core/Snackbar";
 
 const styles = {
   answers: {
@@ -19,18 +18,20 @@ const styles = {
 
 class Answers extends Component {
   handleClick = event => {
-    if (!this.props.showAnswer)
+    if (this.props.showAnswer) {
+      if (this.props.selectedAnswer === event.currentTarget.textContent) {
+        this.props.showSnackbar(false);
+      } else {
+        this.props.showSnackbar(true);
+      }
+    } else {
       this.props.selectAnswer(event.currentTarget.textContent);
+    }
   };
 
   render() {
     return (
       <React.Fragment>
-        <Snackbar
-          open={this.props.showAnswer}
-          message="Your answer is locked now that the correct answer is revealed."
-        />
-        
         <List component="nav">
           {this.props.allAnswers.map(answer => (
             <React.Fragment key={answer}>

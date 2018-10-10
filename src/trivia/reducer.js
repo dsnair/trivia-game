@@ -2,6 +2,7 @@ import {
   ANSWER_SELECTED,
   ANSWER_SCORED,
   ANSWER_REVEALED,
+  SNACKBAR_SHOWN,
   GAME_ENDED,
   TRIVIA_CLEARED
 } from "./actions";
@@ -13,6 +14,7 @@ const initialState = {
   selectedCorrectAnswer: [],
   score: 0,
   showAnswer: false,
+  showSnackbar: false,
   gameNumber: 0,
   summary: []
 };
@@ -33,11 +35,15 @@ export default (state = initialState, action) => {
         ],
         score: selectedCorrectAnswer ? state.score + 1 : state.score,
         questionNumber: state.questionNumber + 1,
-        showAnswer: false
+        showAnswer: false,
+        selectedAnswer: null
       };
 
     case ANSWER_REVEALED:
       return { ...state, showAnswer: true };
+
+    case SNACKBAR_SHOWN:
+      return { ...state, showSnackbar: action.bool };
 
     case GAME_ENDED:
       const gameNumber = state.gameNumber + 1;

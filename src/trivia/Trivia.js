@@ -8,6 +8,7 @@ import Badge from "@material-ui/core/Badge";
 import Typography from "@material-ui/core/Typography";
 import MobileStepper from "@material-ui/core/MobileStepper";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import Snackbar from "@material-ui/core/Snackbar";
 
 import { CATEGORIES, SCORECARD } from "../app/routes";
 import Question from "./Question";
@@ -64,6 +65,11 @@ const Trivia = props => {
         </CardActions>
       </Card>
 
+      <Snackbar
+        open={props.showSnackbar}
+        message="Your answer is locked now that the correct answer is revealed."
+      />
+
       <Badge
         color="primary"
         badgeContent={props.score}
@@ -71,6 +77,7 @@ const Trivia = props => {
       >
         <Typography variant="caption">Score</Typography>
       </Badge>
+
       <Start />
     </React.Fragment>
   );

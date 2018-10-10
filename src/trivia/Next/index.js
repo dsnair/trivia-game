@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 
 import Next from "./Next";
-import { scoreAnswer, incrementGameNumber } from "../actions";
+import { scoreAnswer, incrementGameNumber, showSnackbar } from "../actions";
 
 const mapStateToProps = state => ({
   amount: state.categories.amount,
@@ -10,6 +10,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   scoreAnswer: () => dispatch(scoreAnswer()),
+  showSnackbar: bool => dispatch(showSnackbar(bool)),
   incrementGameNumber: () => dispatch(incrementGameNumber())
 });
 

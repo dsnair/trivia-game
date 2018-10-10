@@ -5,11 +5,13 @@ import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 class Next extends React.Component {
   handleNextClick = () => {
     this.props.scoreAnswer();
+    this.props.showSnackbar(false);
   };
 
   handleScoreClick = () => {
     this.props.scoreAnswer();
     this.props.incrementGameNumber();
+    this.props.showSnackbar(false);
   };
 
   render() {
