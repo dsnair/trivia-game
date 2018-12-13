@@ -1,8 +1,15 @@
 {
-  "main.css": "static/css/main.a744bde9.css",
-  "main.css.map": "static/css/main.a744bde9.css.map",
-  "main.js": "static/js/main.7e1033b2.js",
-  "main.js.map": "static/js/main.7e1033b2.js.map",
-  "static/media/general.jpeg": "static/media/general.26891a74.jpeg",
-  "static/media/sports.jpeg": "static/media/sports.5c296d2f.jpeg"
+  "main.css": "/trivia-game/static/css/main.62dc68b5.chunk.css",
+  "main.js": "/trivia-game/static/js/main.6652a25a.chunk.js",
+  "main.js.map": "/trivia-game/static/js/main.6652a25a.chunk.js.map",
+  "static/js/1.cac0735f.chunk.js": "/trivia-game/static/js/1.cac0735f.chunk.js",
+  "static/js/1.cac0735f.chunk.js.map": "/trivia-game/static/js/1.cac0735f.chunk.js.map",
+  "runtime~main.js": "/trivia-game/static/js/runtime~main.75883f0a.js",
+  "runtime~main.js.map": "/trivia-game/static/js/runtime~main.75883f0a.js.map",
+  "static/css/main.62dc68b5.chunk.css.map": "/trivia-game/static/css/main.62dc68b5.chunk.css.map",
+  "static/media/general.jpeg": "/trivia-game/static/media/general.26891a74.jpeg",
+  "static/media/sports.jpeg": "/trivia-game/static/media/sports.5c296d2f.jpeg",
+  "index.html": "/trivia-game/index.html",
+  "precache-manifest.9fa00cc58196b96c060045ba6d14c3e7.js": "/trivia-game/precache-manifest.9fa00cc58196b96c060045ba6d14c3e7.js",
+  "service-worker.js": "/trivia-game/service-worker.js"
 }
